@@ -18,7 +18,7 @@ Implementation of the paper bellow. Staff line detection can be used to get a gr
 ## Installation
 (Requires OpenCV and Boost libraries).
 
-1. `$ git clone ...`
+1. `$ git clone https://github.com/ferasboulala/staff-detect.git`
 2. `$ cd staff-detect && mkdir bin build `
 3. `$ cd build && cmake ..`
 4. `$ cd ../bin && ./stav --help`
