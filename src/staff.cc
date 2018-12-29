@@ -821,7 +821,7 @@ void SaveToDisk(const std::string &fn, const Staffs &staffs,
   XMLDocument doc;
 
   // <Autoscore>
-  XMLNode *Root = doc.NewElement("AutoScore");
+  XMLNode *Root = doc.NewElement("stav");
   doc.InsertFirstChild(Root);
 
   // <filename>

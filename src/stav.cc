@@ -43,7 +43,7 @@ void process_request(const Request &r)
       p /= strip_fn(fn);
       SaveToDisk(p.generic_string(), staffs, model);
     }
-    if(r.remove_staff)
+    if (r.remove_staff)
     {
       cv::Mat cleared;
       img.copyTo(cleared);
