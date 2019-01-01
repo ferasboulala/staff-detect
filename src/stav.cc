@@ -30,7 +30,17 @@ void process_request(const Request &r)
     auto staffs = FitStaffModel(model);
     if (r.rectify)
       Realign(img, model);
-    if (r.out_image)
+    if (r.remove_staff)
+    {
+      cv::Mat cleared;
+      img.copyTo(cleared);
+      cv::cvtColor(cleared, cleared, CV_BGR2GRAY); // 
+      RemoveStaffs(cleared, staffs, model);
+      fs::path p(r.output_dir);
+      p /= strip_fn(fn);
+      cv::imwrite(p.generic_string(), cleared);      
+    }
+    else if (r.out_image)
     {
       PrintStaffs(img, staffs, model);
       fs::path p(r.output_dir);
@@ -42,16 +52,6 @@ void process_request(const Request &r)
       fs::path p(r.output_dir);
       p /= strip_fn(fn);
       SaveToDisk(p.generic_string(), staffs, model);
-    }
-    if (r.remove_staff)
-    {
-      cv::Mat cleared;
-      img.copyTo(cleared);
-      cv::cvtColor(cleared, cleared, CV_BGR2GRAY); // 
-      RemoveStaffs(cleared, staffs, model);
-      fs::path p(r.output_dir);
-      p /= std::string("cleared_") + strip_fn(fn);
-      cv::imwrite(p.generic_string(), cleared);      
     }
     if (r.verbose)
       std::cout << fn << std::endl;
