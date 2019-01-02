@@ -34,17 +34,16 @@ void process_request(const Request &r)
     {
       cv::Mat cleared;
       img.copyTo(cleared);
-      cv::cvtColor(cleared, cleared, CV_BGR2GRAY); // 
       RemoveStaffs(cleared, staffs, model);
       fs::path p(r.output_dir);
       p /= strip_fn(fn);
       cv::imwrite(p.generic_string(), cleared);      
     }
-    else if (r.out_image)
+    if (r.out_image)
     {
       PrintStaffs(img, staffs, model);
       fs::path p(r.output_dir);
-      p /= strip_fn(fn);
+      p /= "annotated_" + strip_fn(fn);
       cv::imwrite(p.generic_string(), img);
     }
     if (r.out_xml)
@@ -163,7 +162,7 @@ int main(int argc, char **argv)
   {
     image = true;
   }
-  if (!image && !xml)
+  if (!image && !xml && !remove_staff)
   {
     std::cout << "There is nothing to output. Chose an image or an xml in the options\n";
     return -1;

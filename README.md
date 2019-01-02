@@ -26,11 +26,19 @@ Implementation of the paper bellow. Staff line detection can be used to get a gr
 There are many options to the `stav` binary. Just follow the instructions on the screen. For datascience/machine learning practitioners, it is possible to do batch detection of staves. All staves will be store in a convenient `xml` format. 
 
 ## Examples
-The input image is scanned for staff line detection. The output is staff line positions. (ZOOM in to see staff identification)
 
-<p align="center">  
-<img src=pictures/computer_generated.png width="250" height="350">  
-<img src=pictures/staff_computer_generated.png width="250" height="350">  
-<img src=pictures/handwritten.png width="400" height="250">  
-<img src=pictures/staff_handwritten.png width="400" height="250">  
+### Computer generated score (`DEEPSCORES`)
+
+<p align="center">   
+<img src=pictures/in/computer.png width="250" height="350">
+<img src=pictures/out/computer.png width="250" height="350">
+<img src=pictures/out/annotated_computer.png width="250" height="350">
+</p>
+
+### Handwritten score (`MUSCIMA`)
+
+<p align="center">
+<img src=pictures/in/human.png width="400" height="250"> 
+<img src=pictures/out/human.png width="400" height="250">  
+<img src=pictures/out/annotated_human.png width="400" height="250">  
 </p>

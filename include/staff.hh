@@ -69,14 +69,14 @@ void PrintStaffs(cv::Mat &dst, const Staffs &staffs, const StaffModel &model);
 void RemoveStaffs(cv::Mat &dst, const Staffs &staffs, const StaffModel &model);
 
 /**
- * \fn void Realign(cv::Mat &dst, const StaffModel &model)
+ * \fn void Realign(cv::Mat &dst, StaffModel &model)
  * \brief Realigns the image according to the staff model gradient. The output
  * image is then modeled with a constant gradient. To distort back the image,
  * give the inverse of the model (*-1).
  * \param Destination image (grayscale)
  * \param model The relevant staff model
  */
-void Realign(cv::Mat &dst, const StaffModel &model);
+void Realign(cv::Mat &dst, StaffModel &model);
 
 /**
  * \fn void SaveToDisk(const std::string &fn, const Staffs &staffs,

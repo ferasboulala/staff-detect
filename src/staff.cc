@@ -768,7 +768,7 @@ void RemoveStaffs(cv::Mat &dst, const Staffs &staffs,
   raw_rotate(dst, dst, -rotation);
 }
 
-void Realign(cv::Mat &dst, const StaffModel &model)
+void Realign(cv::Mat &dst, StaffModel &model)
 {
   assert(is_gray(dst));
   assert(dst.cols >= model.gradient.size());
@@ -812,6 +812,7 @@ void Realign(cv::Mat &dst, const StaffModel &model)
   if (blackOnWhite)
     cv::threshold(dst, dst, BINARY_THRESH_VAL, 255, CV_THRESH_BINARY_INV);
   raw_rotate(dst, dst, -rotation);
+  model.gradient = std::vector<double>(model.gradient.size(), 0.0);
 }
 
 void SaveToDisk(const std::string &fn, const Staffs &staffs,
