@@ -27,18 +27,20 @@ There are many options to the `stav` binary. Just follow the instructions on the
 
 ## Examples
 
-### Computer generated score (`DEEPSCORES`)
+### Computer generated score `deepscores`
+Computer generated scores are easy to process. The inputed image is scanned for staff lines. The program detects that staff lines are straight.
 
 <p align="center">   
 <img src=pictures/in/computer.png width="250" height="350">
-<img src=pictures/out/computer.png width="250" height="350">
 <img src=pictures/out/annotated_computer.png width="250" height="350">
+<img src=pictures/out/computer.png width="250" height="350">
 </p>
 
-### Handwritten score (`MUSCIMA`)
+### Handwritten score `muscima`
+The input image is scanned for staff lines. The program detects that there is a curvature to the staff lines. It estimates the staff line model, corrects the curvature and removes staffs.
 
 <p align="center">
 <img src=pictures/in/human.png width="400" height="250"> 
-<img src=pictures/out/human.png width="400" height="250">  
-<img src=pictures/out/annotated_human.png width="400" height="250">  
+<img src=pictures/out/annotated_human.png width="400" height="250"> 
+<img src=pictures/out/human.png width="400" height="250">   
 </p>
